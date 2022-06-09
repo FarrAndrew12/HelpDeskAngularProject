@@ -49,19 +49,22 @@ namespace HelpTicketProject.Controllers
             db.SaveChanges();
             return $"The ticket {m.Issue} has been updated at {m.Id} id";
         }
-        [HttpPut("CreateTicket/")]
-        public string CreateTicket(Ticket t)
+        [HttpPut("CreateTicket")]
+        public string CreateTicket(Ticket tick)
         {
-            db.Tickets.Add(t);
+            tick.WhoOpened = 3;
+            tick.WhoClosed = 1;
+            db.Tickets.Add(tick);
             db.SaveChanges();
-            return t.Issue + " has been successfully added to the database";
+            return tick + " has been successfully added to the database";
         }
-        [HttpPost("ResolveTicket/{id}")]
-        public string ResolveTicket(int id, Ticket updated)
+        [HttpPost("ResolveTicket/{id}/{res}/{whoClosed}")]
+        public string ResolveTicket(int id, string res, int whoClosed)
         {
             Ticket t = db.Tickets.Find(id);
             
-            t.Resolution = updated.Resolution;  
+            t.Resolution = res;  
+            t.WhoClosed = whoClosed;
             t.IsClosed = true;
             db.Tickets.Update(t);
             db.SaveChanges();
