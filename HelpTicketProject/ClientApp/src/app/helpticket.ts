@@ -18,14 +18,14 @@ export class Ticket {
     whoOpened: number;
     resolution: string;
     whoClosed: number;
-    IsClosed: boolean;
+    isClosed: boolean;
 
-    constructor (  id: number, issue: string, whoOpened: number, resolution: string, whoClosed: number, IsClosed: boolean){
+    constructor (  id: number, issue: string, whoOpened: number, resolution: string, whoClosed: number, isClosed: boolean){
         this.id = id;
         this.issue = issue;
         this.whoOpened = whoOpened;
         this.resolution = resolution;
         this.whoClosed = whoClosed;
-        this.IsClosed = IsClosed;
+        this.isClosed = isClosed;
     }
 }

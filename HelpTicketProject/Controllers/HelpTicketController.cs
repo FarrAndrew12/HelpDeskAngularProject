@@ -71,6 +71,10 @@ namespace HelpTicketProject.Controllers
 
             return $"{t.IsClosed} has been completed";
         }
-
+        [HttpGet("GetUserInputById/{id}")]
+        public UserInput GetUserInputById(int id, UserInput u)
+        {
+            return db.UserInputs.Where(x => x.Id == id).First();
+        }
     }
 }

@@ -25,4 +25,7 @@ rootUrl: string;
   CreateTicket(newTicket: Ticket){
     return this.http.put(this.rootUrl + "helpticket/CreateTicket" , newTicket)
   }
+  getUserByID(id:number){
+    return this.http.get<UserInput>(this.rootUrl + `helpticket/GetUserInputById/${id}`, {})
+  }
 }

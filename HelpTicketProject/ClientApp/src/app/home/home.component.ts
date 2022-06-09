@@ -10,6 +10,10 @@ import { TicketServiceService } from '../ticket-service.service';
 export class HomeComponent {
   User: UserInput[] = [];
   Ticket: Ticket[] = [];
+  TicketToResolve: Ticket = new Ticket (0,"",0,"",0, true);
+  id: number = 1;
+  resolution: string ='';
+  whoClosed: number =1;
   newTicket: Ticket = new Ticket (0, "",0,"",0,false)
   constructor(private helpticket :TicketServiceService){
     this.helpticket.getUserInput().subscribe(
@@ -21,8 +25,8 @@ export class HomeComponent {
       console.log(result) }
     );
   }
-  resolveTicket(Id:Number, Resolution: string, whoClosed: number){
-    this.helpticket.resolveTicket(Id, Resolution, whoClosed).subscribe((Response)=> {console.log(Response)});
+  resolveTicket(){
+    this.helpticket.resolveTicket(this.TicketToResolve.id, this.TicketToResolve.resolution, this.TicketToResolve.whoClosed).subscribe((Response)=> {console.log(Response)});
   }
   CreateTicket(){
     let clone: Ticket = new Ticket (0, "",0,"",0,false)

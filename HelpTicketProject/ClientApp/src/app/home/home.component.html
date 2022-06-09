@@ -1,31 +1,40 @@
-<ul>
-  <li *ngFor="let u of User">
-    Id: {{u.id}}
+<ul style="list-style: none;">
+  <li  *ngFor="let u of User">
+    UserId: {{u.id}}
     <br>
     Name: {{u.userName}}
     <br>
     Email: {{u.email}}
+    <h2>------------------------------</h2>
   </li>
   <li *ngFor="let t of Ticket">
     Issue: {{t.issue}}
     <br>
     Who Opened: {{t.whoOpened}}
     <br>
- 
+    Closed: {{t.isClosed}}
   </li>
 </ul>
 <h2>Add New Issue</h2>
+<div>
 <p>Describe your issue</p>
-<input [(ngModel)]="newTicket.issue" type="text" maxlength="50" />
-<input [(ngModel)]="newTicket.whoOpened" type="text" maxlength="50" />
+<input [(ngModel)]="newTicket.issue" type="text" maxlength="50" /></div>
+
+<br>
+<div>
+<p>Please Enter UserID </p>
+<input [(ngModel)]="newTicket.whoOpened" type="text" maxlength="50" /></div>
+
+<br>
 <button (click)="CreateTicket()">Add New Ticket</button>
-<li *ngFor="let t of Ticket">
+<h2>------------------------------</h2>
+
   <p>Id</p>
-  <input [(ngModel)]="t.id" type="number" maxlength="50" />
+  <input Name = "id" [(ngModel)]="TicketToResolve.id" type="number" maxlength="50" />
   <p>Resolution</p>
-  <input [(ngModel)]="t.resolution" type="text" maxlength="50" />
+  <input Name= "resolution"[(ngModel)]="TicketToResolve.resolution" type="text" maxlength="50" />
   <p>whoClosed</p>
-  <input [(ngModel)]="t.whoClosed" type="text" maxlength="50" />
-      <button (click)="resolveTicket(t.id, t.issue, t.whoOpened)" class="nav-link text-dark"
+  <input Name= "whoClosed"[(ngModel)]="TicketToResolve.whoClosed" type="text" maxlength="50" />
+      <button (click)="resolveTicket()" class="nav-link text-dark"
                 >Resolve Ticket</button>
-</li>
+             

@@ -1,11 +1,16 @@
-<li *ngFor="let t of Ticket">
-    Id:{{t.id}}
+<p>-------------------------------</p>
+<div *ngFor="let t of Ticket">
+    Ticket #: {{t.id}}
     <br>
     Issue: {{t.issue}}
     <br>
-    Who Opened: {{t.whoOpened}}
+    Who Opened Ticket: {{getUserInputByID(t.whoOpened)}}
     <br>
     Resolution: {{t.resolution}}
     <br>
-    Closed: {{t.IsClosed}}
-  </li>
+    Who Closed Ticket: {{getUserInputByID(t.whoClosed)}}
+    <br>
+    Closed: {{t.isClosed}}
+    <p>---------------------------------</p>
+</div>
+  
