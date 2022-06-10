@@ -1,5 +1,8 @@
 <ul style="list-style: none;">
+  <h1>Users:</h1>
   <li  *ngFor="let u of User">
+    <div *ngIf="u.id === 0" >Id Pending. Please Refresh</div>
+    
     UserId: {{u.id}}
     <br>
     Name: {{u.userName}}
@@ -7,14 +10,32 @@
     Email: {{u.email}}
     <h2>------------------------------</h2>
   </li>
+  <h1>Open Tickets</h1>
   <li *ngFor="let t of Ticket">
+    <div *ngIf="t.isClosed === false">Open to Resolve</div>
     Issue: {{t.issue}}
     <br>
-    Who Opened: {{t.whoOpened}}
+    Who Opened: {{getUserInputByID(t.whoOpened)}}
     <br>
-    Closed: {{t.isClosed}}
+    <div *ngIf="t.isClosed === true">Resolved! See Resolve Ticket page to learn more</div>
+  <div *ngIf="t.isClosed === false">Open to Resolve</div>
+    <h1>------------------------------</h1>
   </li>
+  
 </ul>
+<h2>------------------------------</h2>
+<h2>Add New User</h2>
+<div>
+<p>Please Enter your name</p>
+<input [(ngModel)]="newUser.userName" type="text" maxlength="50" /></div>
+<br>
+<div>
+<p>Please Enter your E-Mail address</p>
+<input [(ngModel)]="newUser.email" type="text" maxlength="50" /></div>
+
+<br>
+<button (click)="CreateUser()">Add User</button>
+<h2>------------------------------</h2>
 <h2>Add New Issue</h2>
 <div>
 <p>Describe your issue</p>
@@ -22,6 +43,8 @@
 
 <br>
 <div>
+
+  
 <p>Please Enter UserID </p>
 <input [(ngModel)]="newTicket.whoOpened" type="text" maxlength="50" /></div>
 
@@ -35,6 +58,11 @@
   <input Name= "resolution"[(ngModel)]="TicketToResolve.resolution" type="text" maxlength="50" />
   <p>whoClosed</p>
   <input Name= "whoClosed"[(ngModel)]="TicketToResolve.whoClosed" type="text" maxlength="50" />
-      <button (click)="resolveTicket()" class="nav-link text-dark"
+  
+  <br>
+  <br>
+      <button (click)="resolveTicket()" class="nav-link text-dark" 
                 >Resolve Ticket</button>
+                <br>
+                <br>
              

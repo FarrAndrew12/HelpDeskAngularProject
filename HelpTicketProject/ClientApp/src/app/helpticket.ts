@@ -29,3 +29,14 @@ export class Ticket {
         this.isClosed = isClosed;
     }
 }
+export class BookMark{
+    id: number;
+    userInputId: number;
+    ticketId: number;
+
+    constructor(id: number, userInputId: number, ticketId:number){
+        this.id = id;
+        this.userInputId= userInputId
+        this.ticketId = ticketId
+    }
+}

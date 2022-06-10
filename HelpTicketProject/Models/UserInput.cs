@@ -7,6 +7,7 @@ namespace HelpTicketProject.Models
     {
         public UserInput()
         {
+            BookMarks = new HashSet<BookMark>();
             TicketWhoClosedNavigations = new HashSet<Ticket>();
             TicketWhoOpenedNavigations = new HashSet<Ticket>();
         }
@@ -15,6 +16,7 @@ namespace HelpTicketProject.Models
         public string? UserName { get; set; }
         public string? Email { get; set; }
 
+        public virtual ICollection<BookMark> BookMarks { get; set; }
         public virtual ICollection<Ticket> TicketWhoClosedNavigations { get; set; }
         public virtual ICollection<Ticket> TicketWhoOpenedNavigations { get; set; }
     }

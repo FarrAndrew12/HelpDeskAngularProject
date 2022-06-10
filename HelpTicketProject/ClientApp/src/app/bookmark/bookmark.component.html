@@ -1,0 +1,9 @@
+<!-- <select name="Users" id="userSelect">
+    <option value="">Select User</option>
+    <option *ngFor="let u of User" value="u.getUserInputByID">{{u.userName}}</option>
+  </select>
+  <button (click)="getBookMarkByUser()"> Get BookMarks </button> -->
+
+<input [(ngModel)]="lookUpId" type="number" >
+<button (click)="getBookMarkByUser(lookUpId)">Get BookMarks</button>
+<li *ngFor="let b of BookMark">{{b.ticketId}}</li>

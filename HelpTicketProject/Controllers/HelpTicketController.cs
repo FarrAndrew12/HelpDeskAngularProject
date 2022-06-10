@@ -15,16 +15,12 @@ namespace HelpTicketProject.Controllers
         {
             return db.UserInputs.ToList();
         }
-        [HttpPut("CreateUserInput/")]
-        public string CreateUser(string username, string email)
+        [HttpPut("CreateUserInput")]
+        public string CreateUser(UserInput user)
         {
-            UserInput ui = new UserInput();
-            
-            ui.UserName=username;
-            ui.Email=email;
-            db.UserInputs.Add(ui);
+            db.UserInputs.Add(user);
             db.SaveChanges();
-            return username + " has been successfully added to the database";
+            return user + " has been successfully added to the database";
         }
         [HttpGet("GetTicket")]
         public List<Ticket> GetTicket()
@@ -75,6 +71,26 @@ namespace HelpTicketProject.Controllers
         public UserInput GetUserInputById(int id, UserInput u)
         {
             return db.UserInputs.Where(x => x.Id == id).First();
+        }
+        [HttpGet("GetTicketById/{id}")]
+        public Ticket GetTicketById(int id, Ticket t)
+        {
+            return db.Tickets.Where(x=> x.Id == id).First();
+        }
+
+        [HttpPut("BookMarkTicket")]
+        public string BookMarkTicket(BookMark bm)
+        {
+           
+            db.BookMarks.Add(bm);
+            db.SaveChanges();
+            return $"{bm} has been added";
+
+        }
+        [HttpGet("GetBookMarkByUser/{id}")]
+        public List<BookMark> GetBookMarkedTicket(int id)
+        {
+            return db.BookMarks.Where(x => x.Id == id).ToList(); 
         }
     }
 }

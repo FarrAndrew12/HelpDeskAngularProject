@@ -13,7 +13,7 @@ import { HomeComponent } from './home/home.component';
 import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { ResolveTicketComponent } from './resolve-ticket/resolve-ticket.component';
-
+import { BookmarkComponent } from './bookmark/bookmark.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +21,8 @@ import { ResolveTicketComponent } from './resolve-ticket/resolve-ticket.componen
     HomeComponent,
     CounterComponent,
     FetchDataComponent,
-    ResolveTicketComponent
+    ResolveTicketComponent,
+    BookmarkComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -31,7 +32,8 @@ import { ResolveTicketComponent } from './resolve-ticket/resolve-ticket.componen
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
-      {path: 'resolve-ticket', component: ResolveTicketComponent}
+      {path: 'resolve-ticket', component: ResolveTicketComponent},
+      {path: 'bookmarked', component: BookmarkComponent}
      
     ])
   ],

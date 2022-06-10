@@ -33,9 +33,17 @@ namespace HelpTicketProject.Models
         {
             modelBuilder.Entity<BookMark>(entity =>
             {
-                entity.HasNoKey();
-
                 entity.ToTable("BookMark");
+
+                entity.HasOne(d => d.Ticket)
+                    .WithMany(p => p.BookMarks)
+                    .HasForeignKey(d => d.TicketId)
+                    .HasConstraintName("FK__BookMark__Ticket__4F7CD00D");
+
+                entity.HasOne(d => d.UserInput)
+                    .WithMany(p => p.BookMarks)
+                    .HasForeignKey(d => d.UserInputId)
+                    .HasConstraintName("FK__BookMark__UserIn__4E88ABD4");
             });
 
             modelBuilder.Entity<Ticket>(entity =>

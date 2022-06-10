@@ -5,6 +5,11 @@ namespace HelpTicketProject.Models
 {
     public partial class Ticket
     {
+        public Ticket()
+        {
+            BookMarks = new HashSet<BookMark>();
+        }
+
         public int Id { get; set; }
         public string? Issue { get; set; }
         public int? WhoOpened { get; set; }
@@ -14,5 +19,6 @@ namespace HelpTicketProject.Models
 
         public virtual UserInput? WhoClosedNavigation { get; set; }
         public virtual UserInput? WhoOpenedNavigation { get; set; }
+        public virtual ICollection<BookMark> BookMarks { get; set; }
     }
 }

@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Ticket, UserInput } from './helpticket';
+import { BookMark, Ticket, UserInput } from './helpticket';
 
 @Injectable({
   providedIn: 'root'
@@ -25,7 +25,19 @@ rootUrl: string;
   CreateTicket(newTicket: Ticket){
     return this.http.put(this.rootUrl + "helpticket/CreateTicket" , newTicket)
   }
+  CreateUser(newUser: UserInput){
+    return this.http.put(this.rootUrl + "helpticket/CreateUserInput", newUser)
+  }
   getUserByID(id:number){
     return this.http.get<UserInput>(this.rootUrl + `helpticket/GetUserInputById/${id}`, {})
+  }
+  getBookMark(): Observable<BookMark[]> {
+    return this.http.get<BookMark[]>(this.rootUrl + "helpticket/GetBookMark")
+  }
+  BookMarkTicket(newBookMark: BookMark){
+    return this.http.put(this.rootUrl + "helpticket/BookMarkTicket", newBookMark)
+  }
+  getBookMarkByUser(id:number){
+    return this.http.get<BookMark[]>(this.rootUrl + `helpticket/GetBookMarkByUser/${id}`)
   }
 }
