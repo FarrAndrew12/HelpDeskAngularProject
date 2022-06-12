@@ -14,3 +14,15 @@ code {
   background-color: #1b6ec2;
   border-color: #1861ac;
 }
+.userlist{
+  background-color: rgba(0, 0, 0, 0.774);
+  border: 10px solid white;
+  color: white;
+  margin: 15px;
+}
+.navbar{
+  background-color: yellow;
+}
+body{
+  background-color: gray;
+}
