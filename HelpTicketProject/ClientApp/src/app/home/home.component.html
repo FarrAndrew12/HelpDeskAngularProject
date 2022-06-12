@@ -1,6 +1,6 @@
 <ul style="list-style: none;">
   <h1>Users:</h1>
-  <li  *ngFor="let u of User">
+  <li class = "userlist"  *ngFor="let u of User">
     <div *ngIf="u.id === 0" >Id Pending. Please Refresh</div>
     
     UserId: {{u.id}}
