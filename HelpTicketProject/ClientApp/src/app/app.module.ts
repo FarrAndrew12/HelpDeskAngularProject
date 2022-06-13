@@ -15,6 +15,7 @@ import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { ResolveTicketComponent } from './resolve-ticket/resolve-ticket.component';
 import { BookmarkComponent } from './bookmark/bookmark.component';
 import { ViewticketComponent } from './viewticket/viewticket.component';
+import { TicketServiceService } from './ticket-service.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,7 +41,7 @@ import { ViewticketComponent } from './viewticket/viewticket.component';
      
     ])
   ],
-  providers: [],
+  providers: [TicketServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

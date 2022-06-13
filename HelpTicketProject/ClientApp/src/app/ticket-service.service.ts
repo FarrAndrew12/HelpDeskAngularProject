@@ -45,4 +45,5 @@ ticketmodel:Ticket = new Ticket (0,"",0,"",0, true);
   getTicketById(id:number){
     return this.http.get<Ticket>(this.rootUrl + `helpticket/GetTicketById/${id}`)
   }
+  
 }

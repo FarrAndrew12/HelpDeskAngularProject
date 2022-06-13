@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  providers: [TicketServiceService]
+  providers: []
 })
 export class HomeComponent {
   User: UserInput[] = [];

@@ -92,5 +92,12 @@ namespace HelpTicketProject.Controllers
         {
             return db.BookMarks.Where(x => x.Id == id).ToList(); 
         }
+        [HttpGet("GetBookMarkByTicket/{id}")]
+        public List<BookMark> GetBookMarkedTicketInfo(int id)
+        {
+            return db.BookMarks.Where(x => x.Id == id).ToList();
+        }
     }
 }
+  
+
