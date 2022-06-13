@@ -3,11 +3,13 @@ import { Inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { BookMark, Ticket, UserInput } from './helpticket';
 
+
 @Injectable({
   providedIn: 'root'
 })
 export class TicketServiceService {
 rootUrl: string;
+ticketmodel:Ticket = new Ticket (0,"",0,"",0, true);
   constructor(private http:HttpClient, @Inject('BASE_URL') baseURL: string) { 
     this.rootUrl = baseURL;
   }
@@ -39,5 +41,8 @@ rootUrl: string;
   }
   getBookMarkByUser(id:number){
     return this.http.get<BookMark[]>(this.rootUrl + `helpticket/GetBookMarkByUser/${id}`)
+  }
+  getTicketById(id:number){
+    return this.http.get<Ticket>(this.rootUrl + `helpticket/GetTicketById/${id}`)
   }
 }

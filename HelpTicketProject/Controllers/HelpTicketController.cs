@@ -73,7 +73,7 @@ namespace HelpTicketProject.Controllers
             return db.UserInputs.Where(x => x.Id == id).First();
         }
         [HttpGet("GetTicketById/{id}")]
-        public Ticket GetTicketById(int id, Ticket t)
+        public Ticket GetTicketById(int id)
         {
             return db.Tickets.Where(x=> x.Id == id).First();
         }

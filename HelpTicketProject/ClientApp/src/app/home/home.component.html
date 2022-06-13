@@ -13,11 +13,14 @@
   <h1>Open Tickets</h1>
   <li class = "ticketlist" *ngFor="let t of Ticket">
     <div *ngIf="t.isClosed === false">Open to Resolve</div>
+    
+
     Issue: {{t.issue}}
     <br>
     Who Opened: {{getUserInputByID(t.whoOpened)}}
     <br>
     <div *ngIf="t.isClosed === true">Resolved! See Resolve Ticket page to learn more</div>
+    <button (click)='searchTickets(t.id)' routerLinkActive="active">View Ticket</button>
   
     
   </li>
