@@ -8,7 +8,7 @@ import { identifierModuleUrl } from '@angular/compiler';
   selector: 'app-resolve-ticket',
   templateUrl: './resolve-ticket.component.html',
   styleUrls: ['./resolve-ticket.component.css'],
-  providers: [TicketServiceService]
+  providers: []
 })
 export class ResolveTicketComponent implements OnInit {
   Ticket: Ticket[] = [];

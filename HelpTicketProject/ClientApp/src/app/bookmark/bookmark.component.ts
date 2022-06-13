@@ -8,7 +8,7 @@ import { TicketServiceService } from '../ticket-service.service';
   selector: 'app-bookmark',
   templateUrl: './bookmark.component.html',
   styleUrls: ['./bookmark.component.css'],
-  providers: [TicketServiceService]
+  providers: []
 })
 export class BookmarkComponent implements OnInit {
   Ticket: Ticket[] = [];

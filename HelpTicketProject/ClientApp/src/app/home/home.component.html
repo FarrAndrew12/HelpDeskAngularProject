@@ -20,7 +20,7 @@
     Who Opened: {{getUserInputByID(t.whoOpened)}}
     <br>
     <div *ngIf="t.isClosed === true">Resolved! See Resolve Ticket page to learn more</div>
-    <button (click)='searchTickets(t.id)' routerLinkActive="active">View Ticket</button>
+    <button (click)='searchTickets(t.id)' routerLinkActive="active" type="button">View Ticket</button>
   
     
   </li>
