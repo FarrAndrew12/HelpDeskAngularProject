@@ -20,6 +20,12 @@ code {
   color: white;
   margin: 15px;
 }
+.ticketlist{
+  background-color: rgba(0, 0, 0, 0.774);
+  border: 10px solid white;
+  color: white;
+  margin: 15px;
+}
 .navbar{
   background-color: yellow;
 }

@@ -8,18 +8,18 @@
     Name: {{u.userName}}
     <br>
     Email: {{u.email}}
-    <h2>------------------------------</h2>
+    
   </li>
   <h1>Open Tickets</h1>
-  <li *ngFor="let t of Ticket">
+  <li class = "ticketlist" *ngFor="let t of Ticket">
     <div *ngIf="t.isClosed === false">Open to Resolve</div>
     Issue: {{t.issue}}
     <br>
     Who Opened: {{getUserInputByID(t.whoOpened)}}
     <br>
     <div *ngIf="t.isClosed === true">Resolved! See Resolve Ticket page to learn more</div>
-  <div *ngIf="t.isClosed === false">Open to Resolve</div>
-    <h1>------------------------------</h1>
+  
+    
   </li>
   
 </ul>
@@ -52,6 +52,7 @@
 <button (click)="CreateTicket()">Add New Ticket</button>
 <h2>------------------------------</h2>
 
+<h2>Resolve Ticket</h2>
   <p>Id</p>
   <input Name = "id" [(ngModel)]="TicketToResolve.id" type="number" maxlength="50" />
   <p>Resolution</p>
