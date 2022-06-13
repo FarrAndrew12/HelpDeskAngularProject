@@ -1,7 +1,19 @@
 <h3>Ticket View</h3>
 <div>
-    <p>Ticket ID: {{t.id}}</p>
-    <p>Issue: {{t.issue}}</p>
-    <p>{{t.whoOpened}}</p>
-    <p>{{t.resolution}}</p>
+    <p>Ticket#{{t.id}}</p>
+    <p>Issue:{{t.issue}}</p>
+    <p>ID of Who Opened Ticket: {{t.whoOpened}}</p>
+    <p>Resolution: {{t.resolution}}</p>
 </div>
+<ul style="list-style: none;">
+    <h4>Users:</h4>
+    <li class = "userlist"  *ngFor="let u of User">
+      <div *ngIf="u.id === 0" >Id Pending. Please Refresh</div>
+      
+      UserId: {{u.id}}
+      <br>
+      Name: {{u.userName}}
+      <br>
+      
+      
+    </li>
