@@ -3,6 +3,8 @@ import { Ticket } from '../helpticket';
 import { UserInput } from '../helpticket';
 import { TicketServiceService } from '../ticket-service.service';
 import { BookMark } from '../helpticket';
+import { inject } from '@angular/core/testing';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -20,7 +22,9 @@ export class HomeComponent {
   newBookMark: BookMark = new BookMark (0,0,0)
   newUser: UserInput = new UserInput (0,"","")
   newTicket: Ticket = new Ticket (0, "",0,"",0,false)
-  constructor(private helpticket :TicketServiceService){
+  searchId: number = 0;
+  results: Ticket[]=[];
+  constructor(private helpticket :TicketServiceService,private ticketDb:TicketServiceService,private router:Router){
     this.helpticket.getUserInput().subscribe(
       (result) => {this.User = result;
         console.log(result) }
@@ -66,5 +70,14 @@ export class HomeComponent {
     this.BookMark.push(clone)
     this.helpticket.BookMarkTicket(clone).subscribe();
     console.log(clone);
+  }
+  searchTickets(id:number):void{
+    this.ticketDb.getTicketById(id).subscribe(
+      (response)=>{
+        this.helpticket.ticketmodel = response;
+        this.router.navigate(['/viewticket']);
+        console.log(response);
+      }
+    )
   }
 }
